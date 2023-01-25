@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Sensible data
+.env
+
+# Storage
+data/
+
+# Nitropack
+.nitro/
+.output/
