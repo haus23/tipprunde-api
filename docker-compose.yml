@@ -12,3 +12,5 @@ services:
       - .env
     ports:
       - 127.0.0.1:5432:5432
+    volumes:
+      - ./data:/usr/src/app/data

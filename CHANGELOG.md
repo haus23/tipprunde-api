@@ -1,5 +1,11 @@
 # @haus23/tipprunde-api
 
+## 1.0.2
+
+### Patch Changes
+
+- Use docker bind volume for cache data.
+
 ## 1.0.1
 
 ### Patch Changes
