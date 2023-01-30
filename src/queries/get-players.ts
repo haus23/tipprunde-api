@@ -1,10 +1,11 @@
 import { Player } from '@haus23/dtp-types';
 import { cachedQuery } from '~/utils/cached-query';
+import { toMap } from '~/utils/to-map';
 import { db } from '../server/db';
 import { modelConverter } from '../server/model-converter';
 
 export const getPlayers = cachedQuery(
-  async (): Promise<Player[]> => {
+  async () => {
     console.info(`[${new Date().toLocaleString()}] Query players`);
 
     const docsSnaphot = await db
@@ -12,7 +13,7 @@ export const getPlayers = cachedQuery(
       .withConverter(modelConverter<Player>())
       .get();
 
-    return docsSnaphot.docs.map((doc) => Player.parse(doc.data()));
+    return toMap(docsSnaphot.docs.map((doc) => Player.parse(doc.data())));
   },
   {
     name: 'masterdata',
