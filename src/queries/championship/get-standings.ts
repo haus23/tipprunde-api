@@ -16,19 +16,25 @@ export const getStandings = cachedQuery(
       .collection(`championships/${championshipId}/matches`)
       .withConverter(modelConverter<ChampionshipMatch>())
       .get();
-    const matches = matchesDocsSnapshot.docs.map((d) => ChampionshipMatch.parse(d.data()));
+    const matches = matchesDocsSnapshot.docs
+      .map((d) => ChampionshipMatch.parse(d.data()))
+      .sort((a, b) => a.nr - b.nr);
 
     const playersDocsSnapshot = await db
       .collection(`championships/${championshipId}/players`)
       .withConverter(modelConverter<ChampionshipPlayer>())
       .get();
-    const players = playersDocsSnapshot.docs.map((d) => ChampionshipPlayer.parse(d.data()));
+    const players = playersDocsSnapshot.docs
+      .map((d) => ChampionshipPlayer.parse(d.data()))
+      .sort((a, b) => a.nr - b.nr);
 
     const roundsDocsSnapshot = await db
       .collection(`championships/${championshipId}/rounds`)
       .withConverter(modelConverter<ChampionshipRound>())
       .get();
-    const rounds = roundsDocsSnapshot.docs.map((d) => ChampionshipRound.parse(d.data()));
+    const rounds = roundsDocsSnapshot.docs
+      .map((d) => ChampionshipRound.parse(d.data()))
+      .sort((a, b) => a.nr - b.nr);
 
     const tipsDocsSnapshot = await db
       .collection(`championships/${championshipId}/tips`)

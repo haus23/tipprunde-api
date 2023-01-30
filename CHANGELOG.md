@@ -1,5 +1,11 @@
 # @haus23/tipprunde-api
 
+## 1.1.1
+
+### Patch Changes
+
+- Return sorted current data.
+
 ## 1.1.0
 
 ### Minor Changes
