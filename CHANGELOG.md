@@ -1,5 +1,11 @@
 # @haus23/tipprunde-api
 
+## 1.2.1
+
+### Patch Changes
+
+- Sort players by rank.
+
 ## 1.2.0
 
 ### Minor Changes

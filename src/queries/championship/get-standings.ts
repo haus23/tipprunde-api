@@ -26,7 +26,7 @@ export const getStandings = cachedQuery(
       .get();
     const players = playersDocsSnapshot.docs
       .map((d) => ChampionshipPlayer.parse(d.data()))
-      .sort((a, b) => a.nr - b.nr);
+      .sort((a, b) => a.rank - b.rank);
 
     const roundsDocsSnapshot = await db
       .collection(`championships/${championshipId}/rounds`)
