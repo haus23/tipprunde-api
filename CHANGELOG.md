@@ -1,5 +1,11 @@
 # @haus23/tipprunde-api
 
+## 1.2.0
+
+### Minor Changes
+
+- Add cors headers for the get requests as well.
+
 ## 1.1.1
 
 ### Patch Changes

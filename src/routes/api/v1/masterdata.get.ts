@@ -4,7 +4,14 @@ import { getPlayers } from '~/queries/get-players';
 import { getRules } from '~/queries/get-rules';
 import { getTeams } from '~/queries/get-teams';
 
-export default eventHandler(async () => {
+export default eventHandler(async (event) => {
+  setHeaders(event, {
+    'access-control-allow-origin': '*',
+    'access-control-allowed-methods': 'GET',
+    'access-control-allow-headers': '*',
+    'access-control-max-age': '0',
+  });
+
   const championships = await getChampionships();
   const leagues = await getLeagues();
   const players = await getPlayers();

@@ -4,6 +4,13 @@ import { getStandings } from '~/queries/championship/get-standings';
 import { getChampionships } from '~/queries/get-championships';
 
 export default eventHandler(async (event) => {
+  setHeaders(event, {
+    'access-control-allow-origin': '*',
+    'access-control-allowed-methods': 'GET',
+    'access-control-allow-headers': '*',
+    'access-control-max-age': '0',
+  });
+
   const championshipIdParseResult = ChampionshipId.or(z.literal('current')).safeParse(
     event.context.params.championshipId
   );
